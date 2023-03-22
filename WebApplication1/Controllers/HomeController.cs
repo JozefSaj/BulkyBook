@@ -13,13 +13,19 @@ namespace WebApplication1.Controllers
             _logger = logger;
         }
 
+        // action (/home/index) it is placed in Views/Home/Index.cshtml
+        //IActionResult(ViewResult can be used to be more explicit) is a parrent class for many derived classes
+        //IActionResult return type is appropriate when multiple ActionResult return types are possible in an action.
         public IActionResult Index()
         {
+            // right click and go to the view
             return View();
         }
 
+        // action(/home/privacy) it is placed in Views/Home/Privacy.cshtml
         public IActionResult Privacy()
         {
+            // right click and go to the view
             return View();
         }
 
