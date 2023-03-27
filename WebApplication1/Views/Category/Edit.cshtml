@@ -1,0 +1,34 @@
+﻿<!--If if we are not passing a model to controller, like in this function we can use model based on the data we are collecting on the page-->
+@model Category
+<form method="post">
+    <div class=" border pt-3 mt-4"> <!-- margin top(mt)-->
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+        <button type="submit"class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller ="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to list
+        </a>
+    </div> 
+</form>
+
+<!--now the validation are done on client sides, so the side is not realoding, when validation is not valid. Thanks to this code-->
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
