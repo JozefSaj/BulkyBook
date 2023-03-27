@@ -2,8 +2,21 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="container p-3"> <!--'p-' moves dialognaly left-->
+    <div class="row pt-4"> <!--'pt'add a top padding-->
+        <div class="col-6"> <!--12 possible collmuns per row, so if we want 2 columms, its p-6 -->
+            <h2 class="text-primary">Category List</h2>
+        </div>
+        <div class="col-6 end text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary"> <!--"btn btn-primary" bootstrap classes-->
+                <i class="bi bi-plus-circle"></i> &nbsp; Create new category <!--&nbsp = space -->
+            </a>
+        </div>
 
-<h1>Index Category</h1>
+    </div>
+    <br />
+
+
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
@@ -29,4 +42,4 @@
         }
     </tbody>
 </table>
-
+</div>

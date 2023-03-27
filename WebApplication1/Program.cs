@@ -10,7 +10,7 @@ builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlSer
 
 var app = builder.Build();
 
-//It's working like pipeline, we get request from browset, then we response(all the app.*)
+//It's working like pipeline, we get request from browser, then we response(all the app.*)
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

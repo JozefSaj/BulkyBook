@@ -17,5 +17,21 @@ namespace WebApplication1.Controllers
             IEnumerable<Category> objCategoryList = _db.Categories;
             return View(objCategoryList);
         }
+
+        //GET
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //POST
+        [HttpPost] //if it is a pasto action we need to write attribute httppost
+        [ValidateAntiForgeryToken] //this aswell
+        public IActionResult Create(Category obj)
+        {
+            _db.Categories.Add(obj);
+            _db.SaveChanges(); //goes to the database and save the changes
+            return RedirectToAction("Index");
+        }
     }
 }
