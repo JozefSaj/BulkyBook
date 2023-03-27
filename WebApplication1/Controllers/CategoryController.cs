@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
@@ -60,11 +61,33 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
+                _db.Categories.Update(obj);
                 _db.SaveChanges(); //goes to the database and save the changes
                 return RedirectToAction("Index");
             }
             return View(obj);
+        }
+
+        //GET
+        public IActionResult Delete(int? id)
+        {
+
+            var categoryFromDb = _db.Categories.Find(id);
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(categoryFromDb);
+        }
+
+        //POST
+        [HttpPost] //if it is a post action we need to write attribute httppost
+        [ValidateAntiForgeryToken] //this aswell
+        public IActionResult Delete(Category obj)
+        {
+            _db.Categories.Remove(obj);
+            _db.SaveChanges(); //goes to the database and save the changes
+            return RedirectToAction("Index");
         }
     }
 }
