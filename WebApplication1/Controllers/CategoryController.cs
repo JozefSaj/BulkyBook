@@ -29,9 +29,13 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken] //this aswell
         public IActionResult Create(Category obj)
         {
+            if(ModelState.IsValid)
+            { 
             _db.Categories.Add(obj);
             _db.SaveChanges(); //goes to the database and save the changes
             return RedirectToAction("Index");
-        }
+            }   
+            return View(obj);
+    }
     }
 }
