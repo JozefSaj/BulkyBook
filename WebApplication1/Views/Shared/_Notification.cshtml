@@ -1,0 +1,10 @@
+﻿<!--notification on some of the action that are performed(when reload page it goes away, thats why they are called tempdata)-->
+<!--partial view ussually has '_' before name-->
+@if (TempData["success"] != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+@if (TempData["error"] != null)
+{
+    <h2>@TempData["error"]</h2>
+}
