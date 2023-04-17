@@ -1,2 +1,2 @@
 # BulkyBook
-Book eshop using ASP.net CORE MVC
+Book eshop using ASP.NET MVC Core
